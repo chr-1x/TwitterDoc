@@ -15,7 +15,7 @@ class APIParam:
 class APIEndpoint:
     def __init__(self):
         self.url = ""
-        self.endpoint = ""
+        self.path = ""
         self.method = ""
         self.params = []
 
@@ -32,7 +32,7 @@ class APIEncoder(json.JSONEncoder):
                     paramdict["example"] = param.example
                 paramlist.append(paramdict)
 
-            return { "endpoint" : obj.endpoint,
+            return { "path" : obj.path,
                      "method" : obj.method,
                      "params": paramlist }
 
@@ -56,7 +56,7 @@ def parse_api_info(doc):
     heading = doc.find("h1")
     title = "".join(heading.strings).strip()
     result.method = title.split(" ")[0]
-    result.endpoint = title.split(" ")[1]
+    result.path = title.split(" ")[1]
 
     url_parent = doc.find(class_="Node-apiDocsUrl")
     result.url = url_parent.find(class_="Field-items-item").text

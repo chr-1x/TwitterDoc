@@ -6,7 +6,7 @@
         "type": "object",
         "description": "An API call",
         "properties": {
-            "endpoint": {
+            "path": {
                 "type": "string",
                 "description": "The URI of the API call"
             }, 
