@@ -1,0 +1,2919 @@
+[
+    {
+        "method": "GET",
+        "params": [
+            {
+                "desc": "Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied. We include retweets in the count, even if include_rts is not supplied. It is recommended you always send include_rts=1 when using this API method.",
+                "type": "int",
+                "required": false,
+                "name": "count"
+            },
+            {
+                "example": "12345",
+                "desc": "Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.",
+                "type": "int",
+                "required": false,
+                "name": "since_id"
+            },
+            {
+                "example": "54321",
+                "desc": "Returns results with an ID less than (that is, older than) or equal to the specified ID.",
+                "type": "int",
+                "required": false,
+                "name": "max_id"
+            },
+            {
+                "example": "true",
+                "desc": "When set to either true, t or 1, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.",
+                "type": "bool",
+                "required": false,
+                "name": "trim_user"
+            },
+            {
+                "example": "true",
+                "desc": "This parameter enhances the contributors element of the status response to include the screen_name of the contributor. By default only the user_id of the contributor is included.",
+                "type": "bool",
+                "required": false,
+                "name": "contributor_details"
+            },
+            {
+                "example": "false",
+                "desc": "The entities node will be disincluded when set to false.",
+                "type": "bool",
+                "required": false,
+                "name": "include_entities"
+            }
+        ],
+        "endpoint": "statuses/mentions_timeline"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "12345",
+                "desc": "The ID of the user for whom to return results for.",
+                "type": "int",
+                "required": false,
+                "name": "user_id"
+            },
+            {
+                "example": "noradio",
+                "desc": "The screen name of the user for whom to return results for.",
+                "type": "string",
+                "required": false,
+                "name": "screen_name"
+            },
+            {
+                "example": "12345",
+                "desc": "Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.",
+                "type": "int",
+                "required": false,
+                "name": "since_id"
+            },
+            {
+                "desc": "Specifies the number of tweets to try and retrieve, up to a maximum of 200 per distinct request. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied. We include retweets in the count, even if include_rts is not supplied. It is recommended you always send include_rts=1 when using this API method.",
+                "type": "int",
+                "required": false,
+                "name": "count"
+            },
+            {
+                "example": "54321",
+                "desc": "Returns results with an ID less than (that is, older than) or equal to the specified ID.",
+                "type": "int",
+                "required": false,
+                "name": "max_id"
+            },
+            {
+                "example": "true",
+                "desc": "When set to either true, t or 1, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.",
+                "type": "bool",
+                "required": false,
+                "name": "trim_user"
+            },
+            {
+                "example": "true",
+                "desc": "This parameter will prevent replies from appearing in the returned timeline. Using exclude_replies with the count parameter will mean you will receive up-to count tweets \u2014 this is because the count parameter retrieves that many tweets before filtering out retweets and replies. This parameter is only supported for JSON and XML responses.",
+                "type": "bool",
+                "required": false,
+                "name": "exclude_replies"
+            },
+            {
+                "example": "true",
+                "desc": "This parameter enhances the contributors element of the status response to include the screen_name of the contributor. By default only the user_id of the contributor is included.",
+                "type": "bool",
+                "required": false,
+                "name": "contributor_details"
+            },
+            {
+                "example": "false",
+                "desc": "When set to false, the timeline will strip any native retweets (though they will still count toward both the maximal length of the timeline and the slice selected by the count parameter). Note: If you\u2019re using the trim_user parameter in conjunction with include_rts, the retweets will still contain a full user object.",
+                "type": "bool",
+                "required": false,
+                "name": "include_rts"
+            }
+        ],
+        "endpoint": "statuses/user_timeline"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "5",
+                "desc": "Specifies the number of records to retrieve. Must be less than or equal to 200. Defaults to 20. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied.",
+                "type": "int",
+                "required": false,
+                "name": "count"
+            },
+            {
+                "example": "12345",
+                "desc": "Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.",
+                "type": "int",
+                "required": false,
+                "name": "since_id"
+            },
+            {
+                "example": "54321",
+                "desc": "Returns results with an ID less than (that is, older than) or equal to the specified ID.",
+                "type": "int",
+                "required": false,
+                "name": "max_id"
+            },
+            {
+                "example": "true",
+                "desc": "When set to either true, t or 1, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.",
+                "type": "bool",
+                "required": false,
+                "name": "trim_user"
+            },
+            {
+                "example": "true",
+                "desc": "This parameter will prevent replies from appearing in the returned timeline. Using exclude_replies with the count parameter will mean you will receive up-to count tweets \u2014 this is because the count parameter retrieves that many tweets before filtering out retweets and replies.",
+                "type": "bool",
+                "required": false,
+                "name": "exclude_replies"
+            },
+            {
+                "example": "true",
+                "desc": "This parameter enhances the contributors element of the status response to include the screen_name of the contributor. By default only the user_id of the contributor is included.",
+                "type": "bool",
+                "required": false,
+                "name": "contributor_details"
+            },
+            {
+                "example": "false",
+                "desc": "The entities node will be disincluded when set to false.",
+                "type": "bool",
+                "required": false,
+                "name": "include_entities"
+            }
+        ],
+        "endpoint": "statuses/home_timeline"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "5",
+                "desc": "Specifies the number of records to retrieve. Must be less than or equal to 100. If omitted, 20 will be assumed.",
+                "type": "int",
+                "required": false,
+                "name": "count"
+            },
+            {
+                "example": "12345",
+                "desc": "Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.",
+                "type": "int",
+                "required": false,
+                "name": "since_id"
+            },
+            {
+                "example": "54321",
+                "desc": "Returns results with an ID less than (that is, older than) or equal to the specified ID.",
+                "type": "int",
+                "required": false,
+                "name": "max_id"
+            },
+            {
+                "example": "true",
+                "desc": "When set to either true, t or 1, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.",
+                "type": "bool",
+                "required": false,
+                "name": "trim_user"
+            },
+            {
+                "example": "false",
+                "desc": "The tweet entities node will not be included when set to false.",
+                "type": "bool",
+                "required": false,
+                "name": "include_entities"
+            },
+            {
+                "example": "false",
+                "desc": "The user entities node will not be included when set to false.",
+                "type": "bool",
+                "required": false,
+                "name": "include_user_entities"
+            }
+        ],
+        "endpoint": "statuses/retweets_of_me"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "123",
+                "desc": "The numerical ID of the desired status.",
+                "type": "int",
+                "required": true,
+                "name": "id"
+            },
+            {
+                "example": "5",
+                "desc": "Specifies the number of records to retrieve. Must be less than or equal to 100.",
+                "type": "int",
+                "required": false,
+                "name": "count"
+            },
+            {
+                "example": "true",
+                "desc": "When set to either true, t or 1, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.",
+                "type": "bool",
+                "required": false,
+                "name": "trim_user"
+            }
+        ],
+        "endpoint": "statuses/retweets/:id"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "123",
+                "desc": "The numerical ID of the desired Tweet.",
+                "type": "int",
+                "required": true,
+                "name": "id"
+            },
+            {
+                "example": "true",
+                "desc": "When set to either true, t or 1, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.",
+                "type": "bool",
+                "required": false,
+                "name": "trim_user"
+            },
+            {
+                "example": "true",
+                "desc": "When set to either true, t or 1, any Tweets returned that have been retweeted by the authenticating user will include an additional current_user_retweet node, containing the ID of the source status for the retweet.",
+                "type": "bool",
+                "required": false,
+                "name": "include_my_retweet"
+            },
+            {
+                "example": "false",
+                "desc": "The entities node will be disincluded when set to false.",
+                "type": "bool",
+                "required": false,
+                "name": "include_entities"
+            }
+        ],
+        "endpoint": "statuses/show/:id"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "example": "123",
+                "desc": "The numerical ID of the desired status.",
+                "type": "int",
+                "required": true,
+                "name": "id"
+            },
+            {
+                "example": "true",
+                "desc": "When set to either true, t or 1, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.",
+                "type": "bool",
+                "required": false,
+                "name": "trim_user"
+            }
+        ],
+        "endpoint": "statuses/destroy/:id"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "desc": "The text of your status update, typically up to 140 characters. URL encode as necessary. t.co link wrapping may affect character counts.",
+                "type": "string",
+                "required": true,
+                "name": "status"
+            },
+            {
+                "desc": "The ID of an existing status that the update is in reply to.",
+                "type": "status_id",
+                "required": false,
+                "name": "in_reply_to_status_id"
+            },
+            {
+                "example": "true",
+                "desc": "If you upload Tweet media that might be considered sensitive content such as nudity, violence, or medical procedures, you should set this value to true. See Media setting and best practices for more context. Defaults to false.",
+                "type": "bool",
+                "required": false,
+                "name": "possibly_sensitive"
+            },
+            {
+                "example": "37.7821120598956",
+                "desc": "The latitude of the location this tweet refers to. This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there isn\u2019t a corresponding long parameter.",
+                "type": "string",
+                "required": false,
+                "name": "lat"
+            },
+            {
+                "example": "-122.400612831116",
+                "desc": "The longitude of the location this tweet refers to. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter.",
+                "type": "string",
+                "required": false,
+                "name": "long"
+            },
+            {
+                "example": "df51dec6f4ee2b2c",
+                "desc": "A place in the world.",
+                "type": "place_id",
+                "required": false,
+                "name": "place_id"
+            },
+            {
+                "example": "true",
+                "desc": "Whether or not to put a pin on the exact coordinates a tweet has been sent from.",
+                "type": "bool",
+                "required": false,
+                "name": "display_coordinates"
+            },
+            {
+                "example": "true",
+                "desc": "When set to either true, t or 1, each Tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.",
+                "type": "bool",
+                "required": false,
+                "name": "trim_user"
+            },
+            {
+                "example": "471592142565957632",
+                "desc": "A list of media_ids to associate with the Tweet. You may include up to 4 photos or 1 animated GIF or 1 video in a Tweet. See Uploading Media for further details on uploading media.",
+                "type": "int",
+                "required": false,
+                "name": "media_ids"
+            }
+        ],
+        "endpoint": "statuses/update"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "example": "123",
+                "desc": "The numerical ID of the desired status.",
+                "type": "int",
+                "required": true,
+                "name": "id"
+            },
+            {
+                "example": "true",
+                "desc": "When set to either true, t or 1, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.",
+                "type": "bool",
+                "required": false,
+                "name": "trim_user"
+            }
+        ],
+        "endpoint": "statuses/retweet/:id"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "example": "123",
+                "desc": "The numerical ID of the desired retweet status.",
+                "type": "int",
+                "required": true,
+                "name": "id"
+            },
+            {
+                "example": "true",
+                "desc": "When set to either true, t or 1, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.",
+                "type": "bool",
+                "required": false,
+                "name": "trim_user"
+            }
+        ],
+        "endpoint": "statuses/unretweet/:id"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "desc": "The text of your status update. URL encode as necessary. t.co link wrapping may affect character counts if the post contains URLs. You must additionally account for the characters_reserved_per_media per uploaded media, additionally accounting for space characters in between finalized URLs.",
+                "type": "string",
+                "required": true,
+                "name": "status"
+            },
+            {
+                "desc": "Up to max_media_per_upload files may be specified in the request, each named media[]. Supported image formats are PNG, JPG and GIF, including animated GIFs of up to 3MB . This data must be either the raw image bytes or encoded as base64.",
+                "type": "string",
+                "required": true,
+                "name": "media[]"
+            },
+            {
+                "desc": "Set to true for content which may not be suitable for every audience.",
+                "type": "string",
+                "required": false,
+                "name": "possibly_sensitive"
+            },
+            {
+                "desc": "The ID of an existing status that the update is in reply to.",
+                "type": "status_id",
+                "required": false,
+                "name": "in_reply_to_status_id"
+            },
+            {
+                "example": "37.7821120598956",
+                "desc": "The latitude of the location this tweet refers to. This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there isn\u2019t a corresponding long parameter.",
+                "type": "string",
+                "required": false,
+                "name": "lat"
+            },
+            {
+                "example": "-122.400612831116",
+                "desc": "The longitude of the location this tweet refers to. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range, not a number, geo_enabled is disabled, or if there not a corresponding lat parameter.",
+                "type": "string",
+                "required": false,
+                "name": "long"
+            },
+            {
+                "example": "df51dec6f4ee2b2c",
+                "desc": "A place in the world identified by a Twitter place ID. Place IDs can be retrieved from geo/reverse_geocode.",
+                "type": "place_id",
+                "required": false,
+                "name": "place_id"
+            },
+            {
+                "example": "true",
+                "desc": "Whether or not to put a pin on the exact coordinates a tweet has been sent from.",
+                "type": "bool",
+                "required": false,
+                "name": "display_coordinates"
+            }
+        ],
+        "endpoint": "statuses/update_with_media"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "desc": "The URL of the Tweet to be embedded.",
+                "type": "string",
+                "required": true,
+                "name": "url"
+            },
+            {
+                "example": "325",
+                "desc": "The maximum width of a rendered Tweet in whole pixels. This value must be between 220 and 550 inclusive. A supplied value under or over the allowed range will be returned as the minimum or maximum supported width respectively; the reset width value will be reflected in the returned width property.",
+                "type": "int",
+                "required": false,
+                "name": "maxwidth"
+            },
+            {
+                "example": "true",
+                "desc": "When set to true, t or 1 links in a Tweet are not expanded to photo, video, or link previews.",
+                "type": "bool",
+                "required": false,
+                "name": "hide_media"
+            },
+            {
+                "example": "true",
+                "desc": "When set to true, t or 1 a collapsed version of the previous Tweet in a conversation thread will not be displayed when the requested Tweet is in reply to another Tweet.",
+                "type": "bool",
+                "required": false,
+                "name": "hide_thread"
+            },
+            {
+                "example": "true",
+                "desc": "When set to true, t or 1 the <script> responsible for loading widgets.js will not be returned. Your webpages should include their own reference to widgets.js for use across all Twitter widgets including Embedded Tweets.",
+                "type": "bool",
+                "required": false,
+                "name": "omit_script"
+            },
+            {
+                "example": "center",
+                "desc": "Specifies whether the embedded Tweet should be floated left, right, or center in the page relative to the parent element. Valid values are left, right, center, and none. Defaults to none, meaning no alignment styles are specified for the Tweet.",
+                "type": "string",
+                "required": false,
+                "name": "align"
+            },
+            {
+                "desc": "A comma-separated list of Twitter usernames related to your content. This value will be forwarded to Tweet action intents if a viewer chooses to reply, favorite, or retweet the embedded Tweet.",
+                "type": "string",
+                "required": false,
+                "name": "related"
+            },
+            {
+                "example": "fr",
+                "desc": "Request returned HTML and a rendered Tweet in the specified Twitter language supported by embedded Tweets.",
+                "type": "string",
+                "required": false,
+                "name": "lang"
+            },
+            {
+                "example": "video",
+                "desc": "Set to video to return a Twitter Video embed for the given Tweet.",
+                "type": "string",
+                "required": false,
+                "name": "widget_type"
+            },
+            {
+                "example": "1",
+                "desc": "Applies to video type only. Set to 1 or true to link directly to the Tweet URL instead of displaying a Tweet overlay when a viewer clicks on the Twitter bird logo.",
+                "type": "int",
+                "required": false,
+                "name": "hide_tweet"
+            }
+        ],
+        "endpoint": "statuses/oembed"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "327473909412814850",
+                "desc": "The numerical ID of the desired status.",
+                "type": "int",
+                "required": true,
+                "name": "id"
+            },
+            {
+                "example": "12893764510938",
+                "desc": "Causes the list of IDs to be broken into pages of no more than 100 IDs at a time. The number of IDs returned is not guaranteed to be 100 as suspended users are filtered out after connections are queried. If no cursor is provided, a value of -1 will be assumed, which is the first \u201cpage.\u201d The response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See our cursor docs for more information. While this method supports the cursor parameter, the entire result set can be returned in a single cursored collection. Using the count parameter with this method will not provide segmented cursors for use with this parameter.",
+                "type": "int",
+                "required": false,
+                "name": "cursor"
+            },
+            {
+                "example": "true",
+                "desc": "Many programming environments will not consume our ids due to their size. Provide this option to have ids returned as strings instead.",
+                "type": "bool",
+                "required": false,
+                "name": "stringify_ids"
+            }
+        ],
+        "endpoint": "statuses/retweeters/ids"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "20",
+                "desc": "A comma separated list of tweet IDs, up to 100 are allowed in a single request.",
+                "type": "int",
+                "required": true,
+                "name": "id"
+            },
+            {
+                "example": "false",
+                "desc": "The entities node that may appear within embedded statuses will be disincluded when set to false.",
+                "type": "bool",
+                "required": false,
+                "name": "include_entities"
+            },
+            {
+                "example": "true",
+                "desc": "When set to either true, t or 1, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object.",
+                "type": "bool",
+                "required": false,
+                "name": "trim_user"
+            },
+            {
+                "example": "true",
+                "desc": "When using the map parameter, tweets that do not exist or cannot be viewed by the current user will still have their key represented but with an explicitly null value paired with it",
+                "type": "bool",
+                "required": false,
+                "name": "map"
+            }
+        ],
+        "endpoint": "statuses/lookup"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "12345",
+                "desc": "Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.",
+                "type": "int",
+                "required": false,
+                "name": "since_id"
+            },
+            {
+                "example": "54321",
+                "desc": "Returns results with an ID less than (that is, older than) or equal to the specified ID.",
+                "type": "int",
+                "required": false,
+                "name": "max_id"
+            },
+            {
+                "example": "5",
+                "desc": "Specifies the number of records to retrieve. Must be less than or equal to 200.",
+                "type": "int",
+                "required": false,
+                "name": "count"
+            },
+            {
+                "example": "3",
+                "desc": "Specifies the page of results to retrieve.",
+                "type": "int",
+                "required": false,
+                "name": "page"
+            },
+            {
+                "example": "false",
+                "desc": "The entities node will not be included when set to false.",
+                "type": "bool",
+                "required": false,
+                "name": "include_entities"
+            }
+        ],
+        "endpoint": "direct_messages/sent"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "587424932",
+                "desc": "The ID of the direct message.",
+                "type": "int",
+                "required": true,
+                "name": "id"
+            }
+        ],
+        "endpoint": "direct_messages/show"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "@noradio",
+                "desc": "A UTF-8, URL-encoded search query of 500 characters maximum, including operators.  Queries may additionally be limited by complexity.",
+                "type": "string",
+                "required": true,
+                "name": "q"
+            },
+            {
+                "example": "37.781157,-122.398720,1mi",
+                "desc": "Returns tweets by users located within a given radius of the given latitude/longitude. The location is preferentially taking from the Geotagging API, but will fall back to their Twitter profile. The parameter value is specified by \u201clatitude,longitude,radius\u201d, where radius units must be specified as either \u201cmi\u201d (miles) or \u201ckm\u201d (kilometers). Note that you cannot use the near operator via the API to geocode arbitrary locations; however you can use this geocode parameter to search near geocodes directly. A maximum of 1,000 distinct \u201csub-regions\u201d will be considered when using the radius modifier.",
+                "type": "string",
+                "required": false,
+                "name": "geocode"
+            },
+            {
+                "example": "eu",
+                "desc": "Restricts tweets to the given language, given by an ISO 639-1 code. Language detection is best-effort.",
+                "type": "string",
+                "required": false,
+                "name": "lang"
+            },
+            {
+                "example": "ja",
+                "desc": "Specify the language of the query you are sending (only ja is currently effective). This is intended for language-specific consumers and the default should work in the majority of cases.",
+                "type": "string",
+                "required": false,
+                "name": "locale"
+            },
+            {
+                "example": "mixed",
+                "desc": "Optional. Specifies what type of search results you would prefer to receive. The current default is \u201crecent.\u201d Valid values include:\n\u00a0\u00a0* mixed: Include both popular and real time results in the response.\n\u00a0\u00a0* recent: return only the most recent results in the response\n\u00a0\u00a0* popular: return only the most popular results in the response.",
+                "type": "string",
+                "required": false,
+                "name": "result_type"
+            },
+            {
+                "example": "100",
+                "desc": "The number of tweets to return per page, up to a maximum of 100. Defaults to 15. This was formerly the \u201crpp\u201d parameter in the old Search API.",
+                "type": "int",
+                "required": false,
+                "name": "count"
+            },
+            {
+                "example": "2015-07-19",
+                "desc": "Returns tweets created before the given date. Date should be formatted as YYYY-MM-DD. Keep in mind that the search index has a 7-day limit.  In other words, no tweets will be found for a date older than one week.",
+                "type": "string",
+                "required": false,
+                "name": "until"
+            },
+            {
+                "example": "12345",
+                "desc": "Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.",
+                "type": "int",
+                "required": false,
+                "name": "since_id"
+            },
+            {
+                "example": "54321",
+                "desc": "Returns results with an ID less than (that is, older than) or equal to the specified ID.",
+                "type": "int",
+                "required": false,
+                "name": "max_id"
+            },
+            {
+                "example": "false",
+                "desc": "The entities node will be disincluded when set to false.",
+                "type": "bool",
+                "required": false,
+                "name": "include_entities"
+            },
+            {
+                "example": "processTweets",
+                "desc": "If supplied, the response will use the JSONP format with a callback of the given name. The usefulness of this parameter is somewhat diminished by the requirement of authentication for requests to this endpoint.",
+                "type": "string",
+                "required": false,
+                "name": "callback"
+            }
+        ],
+        "endpoint": "search/tweets"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "12345",
+                "desc": "Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.",
+                "type": "int",
+                "required": false,
+                "name": "since_id"
+            },
+            {
+                "example": "54321",
+                "desc": "Returns results with an ID less than (that is, older than) or equal to the specified ID.",
+                "type": "int",
+                "required": false,
+                "name": "max_id"
+            },
+            {
+                "example": "5",
+                "desc": "Specifies the number of direct messages to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of Tweets to return because suspended or deleted content is removed after the count has been applied. ",
+                "type": "int",
+                "required": false,
+                "name": "count"
+            },
+            {
+                "example": "false",
+                "desc": "The entities node will not be included when set to false.",
+                "type": "bool",
+                "required": false,
+                "name": "include_entities"
+            },
+            {
+                "desc": "When set to either true, t or 1 statuses will not be included in the returned user objects.",
+                "type": "string",
+                "required": false,
+                "name": "skip_status"
+            }
+        ],
+        "endpoint": "direct_messages"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "example": "1270516771",
+                "desc": "The ID of the direct message to delete.",
+                "type": "int",
+                "required": true,
+                "name": "id"
+            },
+            {
+                "example": "false",
+                "desc": "The entities node will not be included when set to false.",
+                "type": "bool",
+                "required": false,
+                "name": "include_entities"
+            }
+        ],
+        "endpoint": "direct_messages/destroy"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "example": "12345",
+                "desc": "The ID of the user who should receive the direct message. Helpful for disambiguating when a valid user ID is also a valid screen name.",
+                "type": "int",
+                "required": false,
+                "name": "user_id"
+            },
+            {
+                "example": "noradio",
+                "desc": "The screen name of the user who should receive the direct message. Helpful for disambiguating when a valid screen name is also a user ID.",
+                "type": "string",
+                "required": false,
+                "name": "screen_name"
+            },
+            {
+                "example": "Meet me behind the cafeteria after school",
+                "desc": "The text of your direct message. Be sure to URL encode as necessary, and keep the message within the character count limit (available in the help/configuration endpoint)",
+                "type": "string",
+                "required": true,
+                "name": "text"
+            }
+        ],
+        "endpoint": "direct_messages/new"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "true",
+                "desc": "Many programming environments will not consume our ids due to their size. Provide this option to have ids returned as strings instead. Read more about [node:194]. This parameter is especially important to use in Javascript environments.",
+                "type": "bool",
+                "required": false,
+                "name": "stringify_ids"
+            }
+        ],
+        "endpoint": "friendships/no_retweets/ids"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "12345",
+                "desc": "The ID of the user for whom to return results for.",
+                "type": "int",
+                "required": false,
+                "name": "user_id"
+            },
+            {
+                "example": "noradio",
+                "desc": "The screen name of the user for whom to return results for.",
+                "type": "string",
+                "required": false,
+                "name": "screen_name"
+            },
+            {
+                "example": "12893764510938",
+                "desc": "Causes the list of connections to be broken into pages of no more than 5000 IDs at a time. The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried. If no cursor is provided, a value of -1 will be assumed, which is the first \u201cpage.\u201d The response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See Using cursors to navigate collections for more information.",
+                "type": "int",
+                "required": false,
+                "name": "cursor"
+            },
+            {
+                "example": "true",
+                "desc": "Many programming environments will not consume our Tweet ids due to their size. Provide this option to have ids returned as strings instead. More about Twitter IDs.",
+                "type": "bool",
+                "required": false,
+                "name": "stringify_ids"
+            },
+            {
+                "example": "2048",
+                "desc": "Specifies the number of IDs attempt retrieval of, up to a maximum of 5,000 per distinct request. The value of count is best thought of as a limit to the number of results to return. When using the count parameter with this method, it is wise to use a consistent count value across all requests to the same user\u2019s collection. Usage of this parameter is encouraged in environments where all 5,000 IDs constitutes too large of a response.",
+                "type": "int",
+                "required": false,
+                "name": "count"
+            }
+        ],
+        "endpoint": "friends/ids"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "12345",
+                "desc": "The ID of the user for whom to return results for.",
+                "type": "int",
+                "required": false,
+                "name": "user_id"
+            },
+            {
+                "example": "noradio",
+                "desc": "The screen name of the user for whom to return results for.",
+                "type": "string",
+                "required": false,
+                "name": "screen_name"
+            },
+            {
+                "example": "12893764510938",
+                "desc": "Causes the list of connections to be broken into pages of no more than 5000 IDs at a time. The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried. If no cursor is provided, a value of -1 will be assumed, which is the first \u201cpage.\u201d \nThe response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See Using cursors to navigate collections for more information.",
+                "type": "int",
+                "required": false,
+                "name": "cursor"
+            },
+            {
+                "example": "true",
+                "desc": "Many programming environments will not consume our Tweet ids due to their size. Provide this option to have ids returned as strings instead. More about [node:194].",
+                "type": "bool",
+                "required": false,
+                "name": "stringify_ids"
+            },
+            {
+                "example": "2048",
+                "desc": "Specifies the number of IDs attempt retrieval of, up to a maximum of 5,000 per distinct request. The value of count is best thought of as a limit to the number of results to return. When using the count parameter with this method, it is wise to use a consistent count value across all requests to the same user\u2019s collection. Usage of this parameter is encouraged in environments where all 5,000 IDs constitutes too large of a response.",
+                "type": "int",
+                "required": false,
+                "name": "count"
+            }
+        ],
+        "endpoint": "followers/ids"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "12893764510938",
+                "desc": "Causes the list of connections to be broken into pages of no more than 5000 IDs at a time. The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried. If no cursor is provided, a value of -1 will be assumed, which is the first \u201cpage.\u201d \nThe response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See [node:10362, title=\u201dUsing cursors to navigate collections\u201d] for more information.",
+                "type": "int",
+                "required": false,
+                "name": "cursor"
+            },
+            {
+                "example": "true",
+                "desc": "Many programming environments will not consume our Tweet ids due to their size. Provide this option to have ids returned as strings instead. More about [node:194].",
+                "type": "bool",
+                "required": false,
+                "name": "stringify_ids"
+            }
+        ],
+        "endpoint": "friendships/incoming"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "12893764510938",
+                "desc": "Causes the list of connections to be broken into pages of no more than 5000 IDs at a time. The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried. If no cursor is provided, a value of -1 will be assumed, which is the first \u201cpage.\u201d \nThe response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See [node:10362, title=\u201dUsing cursors to navigate collections\u201d] for more information.",
+                "type": "int",
+                "required": false,
+                "name": "cursor"
+            },
+            {
+                "example": "true",
+                "desc": "Many programming environments will not consume our Tweet ids due to their size. Provide this option to have ids returned as strings instead. More about [node:194].",
+                "type": "bool",
+                "required": false,
+                "name": "stringify_ids"
+            }
+        ],
+        "endpoint": "friendships/outgoing"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "example": "noradio",
+                "desc": "The screen name of the user for whom to befriend.",
+                "type": "string",
+                "required": false,
+                "name": "screen_name"
+            },
+            {
+                "example": "12345",
+                "desc": "The ID of the user for whom to befriend.",
+                "type": "int",
+                "required": false,
+                "name": "user_id"
+            },
+            {
+                "example": "true",
+                "desc": "Enable notifications for the target user.",
+                "type": "bool",
+                "required": false,
+                "name": "follow"
+            }
+        ],
+        "endpoint": "friendships/create"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "example": "noradio",
+                "desc": "The screen name of the user for whom to unfollow. ",
+                "type": "string",
+                "required": false,
+                "name": "screen_name"
+            },
+            {
+                "example": "12345",
+                "desc": "The ID of the user for whom to unfollow. ",
+                "type": "int",
+                "required": false,
+                "name": "user_id"
+            }
+        ],
+        "endpoint": "friendships/destroy"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "example": "noradio",
+                "desc": "The screen name of the user for whom to befriend. ",
+                "type": "string",
+                "required": false,
+                "name": "screen_name"
+            },
+            {
+                "example": "12345",
+                "desc": "The ID of the user for whom to befriend. ",
+                "type": "int",
+                "required": false,
+                "name": "user_id"
+            },
+            {
+                "example": "true",
+                "desc": "Enable/disable device notifications from the target user.",
+                "type": "bool",
+                "required": false,
+                "name": "device"
+            },
+            {
+                "example": "true",
+                "desc": "Enable/disable retweets from the target user.",
+                "type": "bool",
+                "required": false,
+                "name": "retweets"
+            }
+        ],
+        "endpoint": "friendships/update"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "3191321",
+                "desc": "The user_id of the subject user.",
+                "type": "int",
+                "required": false,
+                "name": "source_id"
+            },
+            {
+                "example": "raffi",
+                "desc": "The screen_name of the subject user.",
+                "type": "string",
+                "required": false,
+                "name": "source_screen_name"
+            },
+            {
+                "example": "20",
+                "desc": "The user_id of the target user.",
+                "type": "int",
+                "required": false,
+                "name": "target_id"
+            },
+            {
+                "example": "noradio",
+                "desc": "The screen_name of the target user.",
+                "type": "string",
+                "required": false,
+                "name": "target_screen_name"
+            }
+        ],
+        "endpoint": "friendships/show"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "12345",
+                "desc": "The ID of the user for whom to return results for.",
+                "type": "int",
+                "required": false,
+                "name": "user_id"
+            },
+            {
+                "example": "noradio",
+                "desc": "The screen name of the user for whom to return results for.",
+                "type": "string",
+                "required": false,
+                "name": "screen_name"
+            },
+            {
+                "example": "12893764510938",
+                "desc": "Causes the results to be broken into pages. If no cursor is provided, a value of -1 will be assumed, which is the first \u201cpage.\u201d The response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See [node:10362, title=\u201dUsing cursors to navigate collections\u201d] for more information.",
+                "type": "int",
+                "required": false,
+                "name": "cursor"
+            },
+            {
+                "example": "42",
+                "desc": "The number of users to return per page, up to a maximum of 200. Defaults to 20.",
+                "type": "int",
+                "required": false,
+                "name": "count"
+            },
+            {
+                "example": "false",
+                "desc": "When set to either true, t or 1 statuses will not be included in the returned user objects.",
+                "type": "bool",
+                "required": false,
+                "name": "skip_status"
+            },
+            {
+                "example": "false",
+                "desc": "The user object entities node will be disincluded when set to false.",
+                "type": "bool",
+                "required": false,
+                "name": "include_user_entities"
+            }
+        ],
+        "endpoint": "friends/list"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "12345",
+                "desc": "The ID of the user for whom to return results for.",
+                "type": "int",
+                "required": false,
+                "name": "user_id"
+            },
+            {
+                "example": "twitterdev",
+                "desc": "The screen name of the user for whom to return results for.",
+                "type": "string",
+                "required": false,
+                "name": "screen_name"
+            },
+            {
+                "example": "12893764510938",
+                "desc": "Causes the results to be broken into pages. If no cursor is provided, a value of -1 will be assumed, which is the first \u201cpage.\u201d The response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See Using cursors to navigate collections for more information.",
+                "type": "int",
+                "required": false,
+                "name": "cursor"
+            },
+            {
+                "example": "42",
+                "desc": "The number of users to return per page, up to a maximum of 200. Defaults to 20.",
+                "type": "int",
+                "required": false,
+                "name": "count"
+            },
+            {
+                "example": "false",
+                "desc": "When set to either true, t or 1, statuses will not be included in the returned user objects. If set to any other value, statuses will be included.",
+                "type": "bool",
+                "required": false,
+                "name": "skip_status"
+            },
+            {
+                "example": "false",
+                "desc": "The user object entities node will not be included when set to false.",
+                "type": "bool",
+                "required": false,
+                "name": "include_user_entities"
+            }
+        ],
+        "endpoint": "followers/list"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "twitterapi,twitter",
+                "desc": "A comma separated list of screen names, up to 100 are allowed in a single request.",
+                "type": "string",
+                "required": false,
+                "name": "screen_name"
+            },
+            {
+                "example": "783214,6253282",
+                "desc": "A comma separated list of user IDs, up to 100 are allowed in a single request.",
+                "type": "user_id",
+                "required": false,
+                "name": "user_id"
+            }
+        ],
+        "endpoint": "friendships/lookup"
+    },
+    {
+        "method": "GET",
+        "params": [],
+        "endpoint": "account/settings"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "false",
+                "desc": "The entities node will not be included when set to false.",
+                "type": "bool",
+                "required": false,
+                "name": "include_entities"
+            },
+            {
+                "example": "true",
+                "desc": "When set to either true, t or 1 statuses will not be included in the returned user object.",
+                "type": "bool",
+                "required": false,
+                "name": "skip_status"
+            },
+            {
+                "example": "true",
+                "desc": "Use of this parameter requires whitelisting.",
+                "type": "bool",
+                "required": false,
+                "name": "include_email"
+            }
+        ],
+        "endpoint": "account/verify_credentials"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "example": "true",
+                "desc": "When set to true, t or 1, will enable sleep time for the user. Sleep time is the time when push or SMS notifications should not be sent to the user.",
+                "type": "bool",
+                "required": false,
+                "name": "sleep_time_enabled"
+            },
+            {
+                "example": "13",
+                "desc": "The hour that sleep time should begin if it is enabled. The value for this parameter should be provided in ISO8601 format (i.e. 00-23). The time is considered to be in the same timezone as the user\u2019s time_zone setting.",
+                "type": "int",
+                "required": false,
+                "name": "start_sleep_time"
+            },
+            {
+                "example": "13",
+                "desc": "The hour that sleep time should end if it is enabled. The value for this parameter should be provided in ISO8601 format (i.e. 00-23). The time is considered to be in the same timezone as the user\u2019s time_zone setting.",
+                "type": "int",
+                "required": false,
+                "name": "end_sleep_time"
+            },
+            {
+                "example": "Europe/Copenhagen",
+                "desc": "The timezone dates and times should be displayed in for the user. The timezone must be one of the Rails TimeZone names.",
+                "type": "string",
+                "required": false,
+                "name": "time_zone"
+            },
+            {
+                "example": "1",
+                "desc": "The Yahoo! Where On Earth ID to use as the user\u2019s default trend location. Global information is available by using 1 as the WOEID. The woeid must be one of the locations returned by [node:59].",
+                "type": "int",
+                "required": false,
+                "name": "trend_location_woeid"
+            },
+            {
+                "example": "1",
+                "desc": "Whether to allow others to include user as contributor. Possible values include \u201call\u201d (anyone can include user), \u201cfollowing\u201d (only followers can include user) or \u201cnone\u201d.",
+                "type": "int",
+                "required": false,
+                "name": "allow_contributor_request"
+            },
+            {
+                "example": "it",
+                "desc": "The language which Twitter should render in for this user. The language must be specified by the appropriate two letter ISO 639-1 representation. Currently supported languages are provided by this endpoint.\n  ",
+                "type": "string",
+                "required": false,
+                "name": "lang"
+            }
+        ],
+        "endpoint": "account/settings"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "example": "Marcel Molina",
+                "desc": "Full name associated with the profile. Maximum of 20 characters.",
+                "type": "string",
+                "required": false,
+                "name": "name"
+            },
+            {
+                "example": "http://project.ioni.st",
+                "desc": "URL associated with the profile. Will be prepended with \u201chttp://\u201d if not present. Maximum of 100 characters.",
+                "type": "string",
+                "required": false,
+                "name": "url"
+            },
+            {
+                "example": "San Francisco, CA",
+                "desc": "The city or country describing where the user of the account is located. The contents are not normalized or geocoded in any way. Maximum of 30 characters.",
+                "type": "string",
+                "required": false,
+                "name": "location"
+            },
+            {
+                "example": "Flipped my wig at age 22 and it never grew back. Also: I work at Twitter.",
+                "desc": "A description of the user owning the account. Maximum of 160 characters.",
+                "type": "string",
+                "required": false,
+                "name": "description"
+            },
+            {
+                "desc": "Sets a hex value that controls the color scheme of links used on the authenticating user\u2019s profile page on twitter.com. This must be a valid hexadecimal value, and may be either three or six characters (ex: F00 or FF0000).",
+                "type": "color",
+                "required": false,
+                "name": "profile_link_color"
+            },
+            {
+                "example": "false",
+                "desc": "The entities node will not be included when set to false.",
+                "type": "bool",
+                "required": false,
+                "name": "include_entities"
+            },
+            {
+                "desc": "When set to either true, t or 1 statuses will not be included in the returned user objects.",
+                "type": "string",
+                "required": false,
+                "name": "skip_status"
+            }
+        ],
+        "endpoint": "account/update_profile"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "desc": "The avatar image for the profile, base64-encoded. Must be a valid GIF, JPG, or PNG image of less than 700 kilobytes in size. Images with width larger than 400 pixels will be scaled down. Animated GIFs will be converted to a static GIF of the first frame, removing the animation.",
+                "type": "string",
+                "required": true,
+                "name": "image"
+            },
+            {
+                "example": "false",
+                "desc": "The entities node will not be included when set to false.",
+                "type": "bool",
+                "required": false,
+                "name": "include_entities"
+            },
+            {
+                "desc": "When set to either true, t or 1 statuses will not be included in the returned user objects.",
+                "type": "string",
+                "required": false,
+                "name": "skip_status"
+            }
+        ],
+        "endpoint": "account/update_profile_image"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "false",
+                "desc": "The entities node will not be included when set to false.",
+                "type": "bool",
+                "required": false,
+                "name": "include_entities"
+            },
+            {
+                "desc": "When set to either true, t or 1 statuses will not be included in the returned user objects.",
+                "type": "string",
+                "required": false,
+                "name": "skip_status"
+            },
+            {
+                "example": "12893764510938",
+                "desc": "Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time. The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried. If no cursor is provided, a value of -1 will be assumed, which is the first \u201cpage.\u201d \nThe response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See Using cursors to navigate collections for more information.",
+                "type": "int",
+                "required": false,
+                "name": "cursor"
+            }
+        ],
+        "endpoint": "blocks/list"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "true",
+                "desc": "Many programming environments will not consume our ids due to their size. Provide this option to have ids returned as strings instead. Read more about Twitter IDs.",
+                "type": "bool",
+                "required": false,
+                "name": "stringify_ids"
+            },
+            {
+                "example": "12893764510938",
+                "desc": "Causes the list of IDs to be broken into pages of no more than 5000 IDs at a time. The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried. If no cursor is provided, a value of -1 will be assumed, which is the first \u201cpage.\u201d \nThe response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See Using cursors to navigate collections for more information.",
+                "type": "int",
+                "required": false,
+                "name": "cursor"
+            }
+        ],
+        "endpoint": "blocks/ids"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "example": "noradio",
+                "desc": "The screen name of the potentially blocked user. Helpful for disambiguating when a valid screen name is also a user ID.",
+                "type": "string",
+                "required": false,
+                "name": "screen_name"
+            },
+            {
+                "example": "12345",
+                "desc": "The ID of the potentially blocked user. Helpful for disambiguating when a valid user ID is also a valid screen name.",
+                "type": "int",
+                "required": false,
+                "name": "user_id"
+            },
+            {
+                "example": "false",
+                "desc": "The entities node will not be included when set to false.",
+                "type": "bool",
+                "required": false,
+                "name": "include_entities"
+            },
+            {
+                "example": "true",
+                "desc": "When set to either true, t or 1 statuses will not be included in the returned user objects.",
+                "type": "bool",
+                "required": false,
+                "name": "skip_status"
+            }
+        ],
+        "endpoint": "blocks/create"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "example": "noradio",
+                "desc": "The screen name of the potentially blocked user. Helpful for disambiguating when a valid screen name is also a user ID.",
+                "type": "string",
+                "required": false,
+                "name": "screen_name"
+            },
+            {
+                "example": "12345",
+                "desc": "The ID of the potentially blocked user. Helpful for disambiguating when a valid user ID is also a valid screen name.",
+                "type": "int",
+                "required": false,
+                "name": "user_id"
+            },
+            {
+                "example": "false",
+                "desc": "The entities node will not be included when set to false.",
+                "type": "bool",
+                "required": false,
+                "name": "include_entities"
+            },
+            {
+                "desc": "When set to either true, t or 1 statuses will not be included in the returned user objects.",
+                "type": "string",
+                "required": false,
+                "name": "skip_status"
+            }
+        ],
+        "endpoint": "blocks/destroy"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "twitterapi,twitter",
+                "desc": "A comma separated list of screen names, up to 100 are allowed in a single request. You are strongly encouraged to use a POST for larger (up to 100 screen names) requests.",
+                "type": "string",
+                "required": false,
+                "name": "screen_name"
+            },
+            {
+                "example": "783214,6253282",
+                "desc": "A comma separated list of user IDs, up to 100 are allowed in a single request. You are strongly encouraged to use a POST for larger requests.",
+                "type": "user_id",
+                "required": false,
+                "name": "user_id"
+            },
+            {
+                "example": "false",
+                "desc": "The entities node that may appear within embedded statuses will be disincluded when set to false.",
+                "type": "bool",
+                "required": false,
+                "name": "include_entities"
+            }
+        ],
+        "endpoint": "users/lookup"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "12345",
+                "desc": "The ID of the user for whom to return results for. Either an id or screen_name is required for this method.",
+                "type": "int",
+                "required": true,
+                "name": "user_id"
+            },
+            {
+                "example": "noradio",
+                "desc": "The screen name of the user for whom to return results for. Either a id or screen_name is required for this method.",
+                "type": "string",
+                "required": true,
+                "name": "screen_name"
+            },
+            {
+                "example": "false",
+                "desc": "The entities node will be disincluded when set to false.",
+                "type": "bool",
+                "required": false,
+                "name": "include_entities"
+            }
+        ],
+        "endpoint": "users/show"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "Twitter%20API",
+                "desc": "The search query to run against people search.",
+                "type": "string",
+                "required": true,
+                "name": "q"
+            },
+            {
+                "example": "3",
+                "desc": "Specifies the page of results to retrieve.",
+                "type": "int",
+                "required": false,
+                "name": "page"
+            },
+            {
+                "example": "5",
+                "desc": "The number of potential user results to retrieve per page. This value has a maximum of 20.",
+                "type": "int",
+                "required": false,
+                "name": "count"
+            },
+            {
+                "example": "false",
+                "desc": "The entities node will be disincluded from embedded tweet objects when set to false.",
+                "type": "bool",
+                "required": false,
+                "name": "include_entities"
+            }
+        ],
+        "endpoint": "users/search"
+    },
+    {
+        "method": "POST",
+        "params": [],
+        "endpoint": "account/remove_profile_banner"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "desc": "The Base64-encoded or raw image data being uploaded as the user\u2019s new profile banner.",
+                "type": "string",
+                "required": true,
+                "name": "banner"
+            },
+            {
+                "desc": "The width of the preferred section of the image being uploaded in pixels. Use with height, offset_left, and offset_top to select the desired region of the image to use.",
+                "type": "string",
+                "required": false,
+                "name": "width"
+            },
+            {
+                "desc": "The height of the preferred section of the image being uploaded in pixels. Use with width, offset_left, and offset_top to select the desired region of the image to use.",
+                "type": "string",
+                "required": false,
+                "name": "height"
+            },
+            {
+                "desc": "The number of pixels by which to offset the uploaded image from the left. Use with height, width, and offset_top to select the desired region of the image to use.",
+                "type": "string",
+                "required": false,
+                "name": "offset_left"
+            },
+            {
+                "desc": "The number of pixels by which to offset the uploaded image from the top. Use with height, width, and offset_left to select the desired region of the image to use.",
+                "type": "string",
+                "required": false,
+                "name": "offset_top"
+            }
+        ],
+        "endpoint": "account/update_profile_banner"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "12345",
+                "desc": "The ID of the user for whom to return results. Helpful for disambiguating when a valid user ID is also a valid screen name.",
+                "type": "int",
+                "required": false,
+                "name": "user_id"
+            },
+            {
+                "example": "noradio",
+                "desc": "The screen name of the user for whom to return results. Helpful for disambiguating when a valid screen name is also a user ID.",
+                "type": "string",
+                "required": false,
+                "name": "screen_name"
+            }
+        ],
+        "endpoint": "users/profile_banner"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "example": "whiteleaf",
+                "desc": "The screen name of the potentially muted user. Helpful for disambiguating when a valid screen name is also a user ID.",
+                "type": "string",
+                "required": false,
+                "name": "screen_name"
+            },
+            {
+                "example": "12345",
+                "desc": "The ID of the potentially muted user. Helpful for disambiguating when a valid user ID is also a valid screen name.",
+                "type": "int",
+                "required": false,
+                "name": "user_id"
+            }
+        ],
+        "endpoint": "mutes/users/create"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "example": "whiteleaf",
+                "desc": "The screen name of the potentially muted user. Helpful for disambiguating when a valid screen name is also a user ID.",
+                "type": "string",
+                "required": false,
+                "name": "screen_name"
+            },
+            {
+                "example": "12345",
+                "desc": "The ID of the potentially muted user. Helpful for disambiguating when a valid user ID is also a valid screen name.",
+                "type": "int",
+                "required": false,
+                "name": "user_id"
+            }
+        ],
+        "endpoint": "mutes/users/destroy"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "2",
+                "desc": "Causes the list of IDs to be broken into pages of no more than 5000 IDs at a time. The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out. If no cursor is provided, a value of -1 will be assumed, which is the first \u201cpage.\u201d\nThe response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See [node:10362, title=\u201dUsing cursors to navigate collections\u201d] for more information.",
+                "type": "int",
+                "required": false,
+                "name": "cursor"
+            }
+        ],
+        "endpoint": "mutes/users/ids"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "2",
+                "desc": "Causes the list of IDs to be broken into pages of no more than 5000 IDs at a time. The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried. If no cursor is provided, a value of -1 will be assumed, which is the first \u201cpage.\u201d\nThe response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See [node:10362, title=\u201dUsing cursors to navigate collections\u201d] for more information.",
+                "type": "int",
+                "required": false,
+                "name": "cursor"
+            },
+            {
+                "example": "false",
+                "desc": "The entities node will not be included when set to false.",
+                "type": "bool",
+                "required": false,
+                "name": "include_entities"
+            },
+            {
+                "example": "true",
+                "desc": "When set to either true, t or 1 statuses will not be included in the returned user objects.",
+                "type": "bool",
+                "required": false,
+                "name": "skip_status"
+            }
+        ],
+        "endpoint": "mutes/users/list"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "twitter",
+                "desc": "The short name of list or a category",
+                "type": "string",
+                "required": true,
+                "name": "slug"
+            },
+            {
+                "desc": "Restricts the suggested categories to the requested language. The language must be specified by the appropriate two letter ISO 639-1 representation. Currently supported languages are provided by the GET help / languages API request. Unsupported language codes will receive English (en) results. If you use lang in this request, ensure you also include it when requesting the GET users / suggestions / :slug list.",
+                "type": "string",
+                "required": false,
+                "name": "lang"
+            }
+        ],
+        "endpoint": "users/suggestions/:slug"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "desc": "Restricts the suggested categories to the requested language. The language must be specified by the appropriate two letter ISO 639-1 representation. Currently supported languages are provided by the GET help / languages API request. Unsupported language codes will receive English (en) results. If you use lang in this request, ensure you also include it when requesting the GET users / suggestions / :slug list.",
+                "type": "string",
+                "required": false,
+                "name": "lang"
+            }
+        ],
+        "endpoint": "users/suggestions"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "twitter",
+                "desc": "The short name of list or a category",
+                "type": "string",
+                "required": true,
+                "name": "slug"
+            }
+        ],
+        "endpoint": "users/suggestions/:slug/members"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "12345",
+                "desc": "The ID of the user for whom to return results for.",
+                "type": "int",
+                "required": false,
+                "name": "user_id"
+            },
+            {
+                "example": "noradio",
+                "desc": "The screen name of the user for whom to return results for.",
+                "type": "string",
+                "required": false,
+                "name": "screen_name"
+            },
+            {
+                "example": "5",
+                "desc": "Specifies the number of records to retrieve. Must be less than or equal to 200; defaults to 20. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied.",
+                "type": "int",
+                "required": false,
+                "name": "count"
+            },
+            {
+                "example": "12345",
+                "desc": "Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.",
+                "type": "int",
+                "required": false,
+                "name": "since_id"
+            },
+            {
+                "example": "54321",
+                "desc": "Returns results with an ID less than (that is, older than) or equal to the specified ID.",
+                "type": "int",
+                "required": false,
+                "name": "max_id"
+            },
+            {
+                "example": "false",
+                "desc": "The entities node will be omitted when set to false.",
+                "type": "bool",
+                "required": false,
+                "name": "include_entities"
+            }
+        ],
+        "endpoint": "favorites/list"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "example": "123",
+                "desc": "The numerical ID of the desired status.",
+                "type": "int",
+                "required": true,
+                "name": "id"
+            },
+            {
+                "example": "false",
+                "desc": "The entities node will be omitted when set to false.",
+                "type": "bool",
+                "required": false,
+                "name": "include_entities"
+            }
+        ],
+        "endpoint": "favorites/destroy"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "example": "123",
+                "desc": "The numerical ID of the desired status.",
+                "type": "int",
+                "required": true,
+                "name": "id"
+            },
+            {
+                "example": "false",
+                "desc": "The entities node will be omitted when set to false.",
+                "type": "bool",
+                "required": false,
+                "name": "include_entities"
+            }
+        ],
+        "endpoint": "favorites/create"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "desc": "The ID of the user for whom to return results for. Helpful for disambiguating when a valid user ID is also a valid screen name.",
+                "type": "user_id",
+                "required": false,
+                "name": "user_id"
+            },
+            {
+                "example": "noradio",
+                "desc": "The screen name of the user for whom to return results for. Helpful for disambiguating when a valid screen name is also a user ID.",
+                "type": "string",
+                "required": false,
+                "name": "screen_name"
+            },
+            {
+                "example": "true",
+                "desc": "Set this to true if you would like owned lists to be returned first.  See description above for information on how this parameter works.",
+                "type": "bool",
+                "required": false,
+                "name": "reverse"
+            }
+        ],
+        "endpoint": "lists/list"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "desc": "The numerical id of the list.",
+                "type": "status_id",
+                "required": true,
+                "name": "list_id"
+            },
+            {
+                "desc": "You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you\u2019ll also have to specify the list owner using the owner_id or owner_screen_name parameters.",
+                "type": "string",
+                "required": true,
+                "name": "slug"
+            },
+            {
+                "desc": "The screen name of the user who owns the list being requested by a slug.",
+                "type": "string",
+                "required": false,
+                "name": "owner_screen_name"
+            },
+            {
+                "desc": "The user ID of the user who owns the list being requested by a slug.",
+                "type": "status_id",
+                "required": false,
+                "name": "owner_id"
+            },
+            {
+                "desc": "Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.",
+                "type": "status_id",
+                "required": false,
+                "name": "since_id"
+            },
+            {
+                "desc": "Returns results with an ID less than (that is, older than) or equal to the specified ID.",
+                "type": "status_id",
+                "required": false,
+                "name": "max_id"
+            },
+            {
+                "desc": "Specifies the number of results to retrieve per \u201cpage.\u201d",
+                "type": "int",
+                "required": false,
+                "name": "count"
+            },
+            {
+                "desc": "Entities are ON by default in API 1.1, each tweet includes a node called \u201centities\u201d. This node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags. You can omit entities from the result by using include_entities=false",
+                "type": "string",
+                "required": false,
+                "name": "include_entities"
+            },
+            {
+                "desc": "When set to either true, t or 1, the list timeline will contain native retweets (if they exist) in addition to the standard stream of tweets. The output format of retweeted tweets is identical to the representation you see in home_timeline.",
+                "type": "string",
+                "required": false,
+                "name": "include_rts"
+            }
+        ],
+        "endpoint": "lists/statuses"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "desc": "The numerical id of the list.",
+                "type": "status_id",
+                "required": false,
+                "name": "list_id"
+            },
+            {
+                "desc": "You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you\u2019ll also have to specify the list owner using the owner_id or owner_screen_name parameters.",
+                "type": "string",
+                "required": false,
+                "name": "slug"
+            },
+            {
+                "desc": "The ID of the user to remove from the list. Helpful for disambiguating when a valid user ID is also a valid screen name.",
+                "type": "user_id",
+                "required": false,
+                "name": "user_id"
+            },
+            {
+                "desc": "The screen name of the user for whom to remove from the list. Helpful for disambiguating when a valid screen name is also a user ID.",
+                "type": "string",
+                "required": false,
+                "name": "screen_name"
+            },
+            {
+                "desc": "The screen name of the user who owns the list being requested by a slug.",
+                "type": "string",
+                "required": false,
+                "name": "owner_screen_name"
+            },
+            {
+                "desc": "The user ID of the user who owns the list being requested by a slug.",
+                "type": "status_id",
+                "required": false,
+                "name": "owner_id"
+            }
+        ],
+        "endpoint": "lists/members/destroy"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "desc": "The ID of the user for whom to return results for. Helpful for disambiguating when a valid user ID is also a valid screen name.",
+                "type": "user_id",
+                "required": false,
+                "name": "user_id"
+            },
+            {
+                "desc": "The screen name of the user for whom to return results for. Helpful for disambiguating when a valid screen name is also a user ID.",
+                "type": "string",
+                "required": false,
+                "name": "screen_name"
+            },
+            {
+                "desc": "The amount of results to return per page. Defaults to 20. No more than 1000 results will ever be returned in a single page.",
+                "type": "int",
+                "required": false,
+                "name": "count"
+            },
+            {
+                "desc": "Breaks the results into pages. Provide a value of -1 to begin paging. Provide values as returned in the response body\u2019s next_cursor and previous_cursor attributes to page back and forth in the list. It is recommended to always use cursors when the method supports them.  See [node:10362] for more information.",
+                "type": "cursor",
+                "required": false,
+                "name": "cursor"
+            },
+            {
+                "desc": "When set to true, t or 1, will return just lists the authenticating user owns, and the user represented by user_id or screen_name is a member of.",
+                "type": "string",
+                "required": false,
+                "name": "filter_to_owned_lists"
+            }
+        ],
+        "endpoint": "lists/memberships"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "desc": "The numerical id of the list.",
+                "type": "status_id",
+                "required": true,
+                "name": "list_id"
+            },
+            {
+                "desc": "You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you\u2019ll also have to specify the list owner using the owner_id or owner_screen_name parameters.",
+                "type": "string",
+                "required": true,
+                "name": "slug"
+            },
+            {
+                "desc": "The screen name of the user who owns the list being requested by a slug.",
+                "type": "string",
+                "required": false,
+                "name": "owner_screen_name"
+            },
+            {
+                "desc": "The user ID of the user who owns the list being requested by a slug.",
+                "type": "status_id",
+                "required": false,
+                "name": "owner_id"
+            },
+            {
+                "desc": "Specifies the number of results to return per page (see cursor below). The default is 20, with a maximum of 5,000.",
+                "type": "int",
+                "required": false,
+                "name": "count"
+            },
+            {
+                "desc": "Breaks the results into pages. A single page contains 20 lists. Provide a value of -1 to begin paging. Provide values as returned in the response body\u2019s next_cursor and previous_cursor attributes to page back and forth in the list. See Using cursors to navigate collections for more information.",
+                "type": "cursor",
+                "required": false,
+                "name": "cursor"
+            },
+            {
+                "desc": "When set to either true, t or 1, each tweet will include a node called \u201centities\u201d. This node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags. While entities are opt-in on timelines at present, they will be made a default component of output in the future. See Tweet Entities for more details.",
+                "type": "string",
+                "required": false,
+                "name": "include_entities"
+            },
+            {
+                "desc": "When set to either true, t or 1 statuses will not be included in the returned user objects.",
+                "type": "string",
+                "required": false,
+                "name": "skip_status"
+            }
+        ],
+        "endpoint": "lists/subscribers"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "desc": "The screen name of the user who owns the list being requested by a slug.",
+                "type": "string",
+                "required": false,
+                "name": "owner_screen_name"
+            },
+            {
+                "desc": "The user ID of the user who owns the list being requested by a slug.",
+                "type": "status_id",
+                "required": false,
+                "name": "owner_id"
+            },
+            {
+                "desc": "The numerical id of the list.",
+                "type": "status_id",
+                "required": true,
+                "name": "list_id"
+            },
+            {
+                "desc": "You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you\u2019ll also have to specify the list owner using the owner_id or owner_screen_name parameters.",
+                "type": "string",
+                "required": true,
+                "name": "slug"
+            }
+        ],
+        "endpoint": "lists/subscribers/create"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "desc": "The screen name of the user who owns the list being requested by a slug.",
+                "type": "string",
+                "required": false,
+                "name": "owner_screen_name"
+            },
+            {
+                "desc": "The user ID of the user who owns the list being requested by a slug.",
+                "type": "status_id",
+                "required": false,
+                "name": "owner_id"
+            },
+            {
+                "desc": "The numerical id of the list.",
+                "type": "status_id",
+                "required": true,
+                "name": "list_id"
+            },
+            {
+                "desc": "You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you\u2019ll also have to specify the list owner using the owner_id or owner_screen_name parameters.",
+                "type": "string",
+                "required": true,
+                "name": "slug"
+            },
+            {
+                "desc": "The ID of the user for whom to return results for. Helpful for disambiguating when a valid user ID is also a valid screen name.",
+                "type": "user_id",
+                "required": true,
+                "name": "user_id"
+            },
+            {
+                "desc": "The screen name of the user for whom to return results for. Helpful for disambiguating when a valid screen name is also a user ID.",
+                "type": "string",
+                "required": true,
+                "name": "screen_name"
+            },
+            {
+                "desc": "When set to either true, t or 1, each tweet will include a node called \u201centities\u201d. This node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags. While entities are opt-in on timelines at present, they will be made a default component of output in the future. See Tweet Entities for more details.",
+                "type": "string",
+                "required": false,
+                "name": "include_entities"
+            },
+            {
+                "desc": "When set to either true, t or 1 statuses will not be included in the returned user objects.",
+                "type": "string",
+                "required": false,
+                "name": "skip_status"
+            }
+        ],
+        "endpoint": "lists/subscribers/show"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "desc": "The numerical id of the list.",
+                "type": "status_id",
+                "required": true,
+                "name": "list_id"
+            },
+            {
+                "desc": "You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you\u2019ll also have to specify the list owner using the owner_id or owner_screen_name parameters.",
+                "type": "string",
+                "required": true,
+                "name": "slug"
+            },
+            {
+                "desc": "The screen name of the user who owns the list being requested by a slug.",
+                "type": "string",
+                "required": false,
+                "name": "owner_screen_name"
+            },
+            {
+                "desc": "The user ID of the user who owns the list being requested by a slug.",
+                "type": "status_id",
+                "required": false,
+                "name": "owner_id"
+            }
+        ],
+        "endpoint": "lists/subscribers/destroy"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "desc": "The numerical id of the list.",
+                "type": "status_id",
+                "required": true,
+                "name": "list_id"
+            },
+            {
+                "desc": "You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you\u2019ll also have to specify the list owner using the owner_id or owner_screen_name parameters.",
+                "type": "string",
+                "required": true,
+                "name": "slug"
+            },
+            {
+                "desc": "A comma separated list of user IDs, up to 100 are allowed in a single request.",
+                "type": "user_id",
+                "required": false,
+                "name": "user_id"
+            },
+            {
+                "desc": "A comma separated list of screen names, up to 100 are allowed in a single request.",
+                "type": "string",
+                "required": false,
+                "name": "screen_name"
+            },
+            {
+                "desc": "The screen name of the user who owns the list being requested by a slug.",
+                "type": "string",
+                "required": false,
+                "name": "owner_screen_name"
+            },
+            {
+                "desc": "The user ID of the user who owns the list being requested by a slug.",
+                "type": "status_id",
+                "required": false,
+                "name": "owner_id"
+            }
+        ],
+        "endpoint": "lists/members/create_all"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "desc": "The numerical id of the list.",
+                "type": "status_id",
+                "required": true,
+                "name": "list_id"
+            },
+            {
+                "desc": "You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you\u2019ll also have to specify the list owner using the owner_id or owner_screen_name parameters.",
+                "type": "string",
+                "required": true,
+                "name": "slug"
+            },
+            {
+                "desc": "The ID of the user for whom to return results for. Helpful for disambiguating when a valid user ID is also a valid screen name.",
+                "type": "user_id",
+                "required": true,
+                "name": "user_id"
+            },
+            {
+                "desc": "The screen name of the user for whom to return results for. Helpful for disambiguating when a valid screen name is also a user ID.",
+                "type": "string",
+                "required": true,
+                "name": "screen_name"
+            },
+            {
+                "desc": "The screen name of the user who owns the list being requested by a slug.",
+                "type": "string",
+                "required": false,
+                "name": "owner_screen_name"
+            },
+            {
+                "desc": "The user ID of the user who owns the list being requested by a slug.",
+                "type": "status_id",
+                "required": false,
+                "name": "owner_id"
+            },
+            {
+                "desc": "When set to either true, t or 1, each tweet will include a node called \u201centities\u201d. This node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags. While entities are opt-in on timelines at present, they will be made a default component of output in the future. See Tweet Entities for more details.",
+                "type": "string",
+                "required": false,
+                "name": "include_entities"
+            },
+            {
+                "desc": "When set to either true, t or 1 statuses will not be included in the returned user objects.",
+                "type": "string",
+                "required": false,
+                "name": "skip_status"
+            }
+        ],
+        "endpoint": "lists/members/show"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "desc": "The numerical id of the list.",
+                "type": "status_id",
+                "required": true,
+                "name": "list_id"
+            },
+            {
+                "desc": "You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you\u2019ll also have to specify the list owner using the owner_id or owner_screen_name parameters.",
+                "type": "string",
+                "required": true,
+                "name": "slug"
+            },
+            {
+                "desc": "The screen name of the user who owns the list being requested by a slug.",
+                "type": "string",
+                "required": false,
+                "name": "owner_screen_name"
+            },
+            {
+                "desc": "The user ID of the user who owns the list being requested by a slug.",
+                "type": "status_id",
+                "required": false,
+                "name": "owner_id"
+            },
+            {
+                "desc": "Specifies the number of results to return per page (see cursor below). The default is 20, with a maximum of 5,000.",
+                "type": "int",
+                "required": false,
+                "name": "count"
+            },
+            {
+                "example": "12893764510938",
+                "desc": "Causes the collection of list members to be broken into \u201cpages\u201d of consistent sizes (specified by the count parameter). If no cursor is provided, a value of -1 will be assumed, which is the first \u201cpage.\u201d \nThe response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See Using cursors to navigate collections for more information.",
+                "type": "int",
+                "required": false,
+                "name": "cursor"
+            },
+            {
+                "example": "false",
+                "desc": "The entities node will be disincluded when set to false.",
+                "type": "bool",
+                "required": false,
+                "name": "include_entities"
+            },
+            {
+                "desc": "When set to either true, t or 1 statuses will not be included in the returned user objects.",
+                "type": "string",
+                "required": false,
+                "name": "skip_status"
+            }
+        ],
+        "endpoint": "lists/members"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "desc": "The numerical id of the list.",
+                "type": "status_id",
+                "required": true,
+                "name": "list_id"
+            },
+            {
+                "desc": "You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you\u2019ll also have to specify the list owner using the owner_id or owner_screen_name parameters.",
+                "type": "string",
+                "required": true,
+                "name": "slug"
+            },
+            {
+                "desc": "The ID of the user for whom to return results for. Helpful for disambiguating when a valid user ID is also a valid screen name.",
+                "type": "user_id",
+                "required": true,
+                "name": "user_id"
+            },
+            {
+                "desc": "The screen name of the user for whom to return results for. Helpful for disambiguating when a valid screen name is also a user ID.",
+                "type": "string",
+                "required": true,
+                "name": "screen_name"
+            },
+            {
+                "desc": "The screen name of the user who owns the list being requested by a slug.",
+                "type": "string",
+                "required": false,
+                "name": "owner_screen_name"
+            },
+            {
+                "desc": "The user ID of the user who owns the list being requested by a slug.",
+                "type": "status_id",
+                "required": false,
+                "name": "owner_id"
+            }
+        ],
+        "endpoint": "lists/members/create"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "desc": "The screen name of the user who owns the list being requested by a slug.",
+                "type": "string",
+                "required": false,
+                "name": "owner_screen_name"
+            },
+            {
+                "desc": "The user ID of the user who owns the list being requested by a slug.",
+                "type": "status_id",
+                "required": false,
+                "name": "owner_id"
+            },
+            {
+                "desc": "The numerical id of the list.",
+                "type": "status_id",
+                "required": true,
+                "name": "list_id"
+            },
+            {
+                "desc": "You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you\u2019ll also have to specify the list owner using the owner_id or owner_screen_name parameters.",
+                "type": "string",
+                "required": true,
+                "name": "slug"
+            }
+        ],
+        "endpoint": "lists/destroy"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "desc": "The numerical id of the list.",
+                "type": "status_id",
+                "required": true,
+                "name": "list_id"
+            },
+            {
+                "desc": "You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you\u2019ll also have to specify the list owner using the owner_id or owner_screen_name parameters.",
+                "type": "string",
+                "required": true,
+                "name": "slug"
+            },
+            {
+                "desc": "The name for the list.",
+                "type": "string",
+                "required": false,
+                "name": "name"
+            },
+            {
+                "desc": "Whether your list is public or private. Values can be public or private. If no mode is specified the list will be public.",
+                "type": "string",
+                "required": false,
+                "name": "mode"
+            },
+            {
+                "desc": "The description to give the list.",
+                "type": "string",
+                "required": false,
+                "name": "description"
+            },
+            {
+                "desc": "The screen name of the user who owns the list being requested by a slug.",
+                "type": "string",
+                "required": false,
+                "name": "owner_screen_name"
+            },
+            {
+                "desc": "The user ID of the user who owns the list being requested by a slug.",
+                "type": "status_id",
+                "required": false,
+                "name": "owner_id"
+            }
+        ],
+        "endpoint": "lists/update"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "desc": "The name for the list.",
+                "type": "string",
+                "required": true,
+                "name": "name"
+            },
+            {
+                "desc": "Whether your list is public or private. Values can be public or private. If no mode is specified the list will be public.",
+                "type": "string",
+                "required": false,
+                "name": "mode"
+            },
+            {
+                "desc": "The description to give the list.",
+                "type": "string",
+                "required": false,
+                "name": "description"
+            }
+        ],
+        "endpoint": "lists/create"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "desc": "The numerical id of the list.",
+                "type": "status_id",
+                "required": true,
+                "name": "list_id"
+            },
+            {
+                "desc": "You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you\u2019ll also have to specify the list owner using the owner_id or owner_screen_name parameters.",
+                "type": "string",
+                "required": true,
+                "name": "slug"
+            },
+            {
+                "desc": "The screen name of the user who owns the list being requested by a slug.",
+                "type": "string",
+                "required": false,
+                "name": "owner_screen_name"
+            },
+            {
+                "desc": "The user ID of the user who owns the list being requested by a slug.",
+                "type": "status_id",
+                "required": false,
+                "name": "owner_id"
+            }
+        ],
+        "endpoint": "lists/show"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "desc": "The ID of the user for whom to return results for. Helpful for disambiguating when a valid user ID is also a valid screen name.",
+                "type": "user_id",
+                "required": false,
+                "name": "user_id"
+            },
+            {
+                "desc": "The screen name of the user for whom to return results for. Helpful for disambiguating when a valid screen name is also a user ID.",
+                "type": "string",
+                "required": false,
+                "name": "screen_name"
+            },
+            {
+                "desc": "The amount of results to return per page. Defaults to 20. No more than 1000 results will ever be returned in a single page.",
+                "type": "int",
+                "required": false,
+                "name": "count"
+            },
+            {
+                "desc": "Breaks the results into pages. Provide a value of -1 to begin paging. Provide values as returned in the response body\u2019s next_cursor and previous_cursor attributes to page back and forth in the list. It is recommended to always use cursors when the method supports them.  See [node:10362] for more information.",
+                "type": "cursor",
+                "required": false,
+                "name": "cursor"
+            }
+        ],
+        "endpoint": "lists/subscriptions"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "desc": "The numerical id of the list.",
+                "type": "status_id",
+                "required": true,
+                "name": "list_id"
+            },
+            {
+                "desc": "You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you\u2019ll also have to specify the list owner using the owner_id or owner_screen_name parameters.",
+                "type": "string",
+                "required": true,
+                "name": "slug"
+            },
+            {
+                "desc": "A comma separated list of user IDs, up to 100 are allowed in a single request.",
+                "type": "user_id",
+                "required": false,
+                "name": "user_id"
+            },
+            {
+                "desc": "A comma separated list of screen names, up to 100 are allowed in a single request.",
+                "type": "string",
+                "required": false,
+                "name": "screen_name"
+            },
+            {
+                "desc": "The screen name of the user who owns the list being requested by a slug.",
+                "type": "string",
+                "required": false,
+                "name": "owner_screen_name"
+            },
+            {
+                "desc": "The user ID of the user who owns the list being requested by a slug.",
+                "type": "status_id",
+                "required": false,
+                "name": "owner_id"
+            }
+        ],
+        "endpoint": "lists/members/destroy_all"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "desc": "The ID of the user for whom to return results for.",
+                "type": "user_id",
+                "required": false,
+                "name": "user_id"
+            },
+            {
+                "desc": "The screen name of the user for whom to return results for.",
+                "type": "string",
+                "required": false,
+                "name": "screen_name"
+            },
+            {
+                "desc": "The amount of results to return per page. Defaults to 20. No more than 1000 results will ever be returned in a single page.",
+                "type": "int",
+                "required": false,
+                "name": "count"
+            },
+            {
+                "desc": "Breaks the results into pages. Provide a value of -1 to begin paging. Provide values as returned in the response body\u2019s next_cursor and previous_cursor attributes to page back and forth in the list. It is recommended to always use cursors when the method supports them.  See [node:10362] for more information.",
+                "type": "cursor",
+                "required": false,
+                "name": "cursor"
+            }
+        ],
+        "endpoint": "lists/ownerships"
+    },
+    {
+        "method": "GET",
+        "params": [],
+        "endpoint": "saved_searches/list"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "313006",
+                "desc": "The ID of the saved search.",
+                "type": "int",
+                "required": true,
+                "name": "id"
+            }
+        ],
+        "endpoint": "saved_searches/show/:id"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "desc": "The query of the search the user would like to save. The query must be 100 characters or less.",
+                "type": "string",
+                "required": true,
+                "name": "query"
+            }
+        ],
+        "endpoint": "saved_searches/create"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "example": "313006",
+                "desc": "The ID of the saved search.",
+                "type": "int",
+                "required": true,
+                "name": "id"
+            }
+        ],
+        "endpoint": "saved_searches/destroy/:id"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "df51dec6f4ee2b2c",
+                "desc": "A place in the world. These IDs can be retrieved from geo/reverse_geocode.",
+                "type": "place_id",
+                "required": true,
+                "name": "place_id"
+            }
+        ],
+        "endpoint": "geo/id/:place_id"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "37.7821120598956",
+                "desc": "The latitude to search around. This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there isn\u2019t a corresponding long parameter.",
+                "type": "string",
+                "required": true,
+                "name": "lat"
+            },
+            {
+                "example": "-122.400612831116",
+                "desc": "The longitude to search around. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter.",
+                "type": "string",
+                "required": true,
+                "name": "long"
+            },
+            {
+                "example": "5ft",
+                "desc": "A hint on the \u201cregion\u201d in which to search. If a number, then this is a radius in meters, but it can also take a string that is suffixed with ft to specify feet. If this is not passed in, then it is assumed to be 0m. If coming from a device, in practice, this value is whatever accuracy the device has measuring its location (whether it be coming from a GPS, WiFi triangulation, etc.).",
+                "type": "string",
+                "required": false,
+                "name": "accuracy"
+            },
+            {
+                "example": "city",
+                "desc": "This is the minimal granularity of place types to return and must be one of: poi, neighborhood, city, admin or country. If no granularity is provided for the request neighborhood is assumed. Setting this to city, for example, will find places which have a type of city, admin or country.",
+                "type": "string",
+                "required": false,
+                "name": "granularity"
+            },
+            {
+                "example": "3",
+                "desc": "A hint as to the number of results to return. This does not guarantee that the number of results returned will equal max_results, but instead informs how many \u201cnearby\u201d results to return. Ideally, only pass in the number of places you intend to display to the user here.",
+                "type": "int",
+                "required": false,
+                "name": "max_results"
+            },
+            {
+                "desc": "If supplied, the response will use the JSONP format with a callback of the given name.",
+                "type": "string",
+                "required": false,
+                "name": "callback"
+            }
+        ],
+        "endpoint": "geo/reverse_geocode"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "37.7821120598956",
+                "desc": "The latitude to search around. This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there isn\u2019t a corresponding long parameter.",
+                "type": "string",
+                "required": false,
+                "name": "lat"
+            },
+            {
+                "example": "-122.400612831116",
+                "desc": "The longitude to search around. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter.",
+                "type": "string",
+                "required": false,
+                "name": "long"
+            },
+            {
+                "example": "Twitter%20HQ",
+                "desc": "Free-form text to match against while executing a geo-based query, best suited for finding nearby locations by name. Remember to URL encode the query.",
+                "type": "string",
+                "required": false,
+                "name": "query"
+            },
+            {
+                "example": "74.125.19.104",
+                "desc": "An IP address. Used when attempting to fix geolocation based off of the user\u2019s IP address.",
+                "type": "string",
+                "required": false,
+                "name": "ip"
+            },
+            {
+                "example": "city",
+                "desc": "This is the minimal granularity of place types to return and must be one of: poi, neighborhood, city, admin or country. If no granularity is provided for the request neighborhood is assumed. Setting this to city, for example, will find places which have a type of city, admin or country.",
+                "type": "string",
+                "required": false,
+                "name": "granularity"
+            },
+            {
+                "example": "5ft",
+                "desc": "A hint on the \u201cregion\u201d in which to search. If a number, then this is a radius in meters, but it can also take a string that is suffixed with ft to specify feet. If this is not passed in, then it is assumed to be 0m. If coming from a device, in practice, this value is whatever accuracy the device has measuring its location (whether it be coming from a GPS, WiFi triangulation, etc.).",
+                "type": "string",
+                "required": false,
+                "name": "accuracy"
+            },
+            {
+                "example": "3",
+                "desc": "A hint as to the number of results to return. This does not guarantee that the number of results returned will equal max_results, but instead informs how many \u201cnearby\u201d results to return. Ideally, only pass in the number of places you intend to display to the user here.",
+                "type": "int",
+                "required": false,
+                "name": "max_results"
+            },
+            {
+                "example": "247f43d441defc03",
+                "desc": "This is the place_id which you would like to restrict the search results to. Setting this value means only places within the given place_id will be found. Specify a place_id. For example, to scope all results to places within \u201cSan Francisco, CA USA\u201d, you would specify a place_id of \u201c5a110d312052166f\u201d",
+                "type": "string",
+                "required": false,
+                "name": "contained_within"
+            },
+            {
+                "example": "795%20Folsom%20St",
+                "desc": "This parameter searches for places which have this given street address. There are other well-known, and application specific attributes available. Custom attributes are also permitted. Learn more about [node:208, title=\u201dPlace Attributes\u201d].",
+                "type": "string",
+                "required": false,
+                "name": "attribute:street_address"
+            },
+            {
+                "desc": "If supplied, the response will use the JSONP format with a callback of the given name.",
+                "type": "string",
+                "required": false,
+                "name": "callback"
+            }
+        ],
+        "endpoint": "geo/search"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "example": "Twitter%20HQ",
+                "desc": "The name a place is known as.",
+                "type": "string",
+                "required": true,
+                "name": "name"
+            },
+            {
+                "example": "247f43d441defc03",
+                "desc": "The place_id within which the new place can be found. Try and be as close as possible with the containing place. For example, for a room in a building, set the contained_within as the building place_id.",
+                "type": "string",
+                "required": true,
+                "name": "contained_within"
+            },
+            {
+                "example": "36179c9bf78835898ebf521c1defd4be",
+                "desc": "The token found in the response from geo/similar_places.",
+                "type": "string",
+                "required": true,
+                "name": "token"
+            },
+            {
+                "example": "37.7821120598956",
+                "desc": "The latitude the place is located at. This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there isn\u2019t a corresponding long parameter.",
+                "type": "string",
+                "required": true,
+                "name": "lat"
+            },
+            {
+                "example": "-122.400612831116",
+                "desc": "The longitude the place is located at. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter.",
+                "type": "string",
+                "required": true,
+                "name": "long"
+            },
+            {
+                "example": "795%20Folsom%20St",
+                "desc": "This parameter searches for places which have this given street address. There are other well-known, and application specific attributes available. Custom attributes are also permitted. Learn more here.",
+                "type": "string",
+                "required": false,
+                "name": "attribute:street_address"
+            },
+            {
+                "desc": "If supplied, the response will use the JSONP format with a callback of the given name.",
+                "type": "string",
+                "required": false,
+                "name": "callback"
+            }
+        ],
+        "endpoint": "geo/place"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "1",
+                "desc": "The Yahoo! Where On Earth ID of the location to return trending information for. Global information is available by using 1 as the WOEID.",
+                "type": "int",
+                "required": true,
+                "name": "id"
+            },
+            {
+                "desc": "Setting this equal to hashtags will remove all hashtags from the trends list.",
+                "type": "string",
+                "required": false,
+                "name": "exclude"
+            }
+        ],
+        "endpoint": "trends/place"
+    },
+    {
+        "method": "GET",
+        "params": [],
+        "endpoint": "trends/available"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "statuses,friends,trends,help",
+                "desc": "A comma-separated list of resource families you want to know the current rate limit disposition for. For best performance, only specify the resource families pertinent to your application.",
+                "type": "string",
+                "required": false,
+                "name": "resources"
+            }
+        ],
+        "endpoint": "application/rate_limit_status"
+    },
+    {
+        "method": "GET",
+        "params": [],
+        "endpoint": "help/configuration"
+    },
+    {
+        "method": "GET",
+        "params": [],
+        "endpoint": "help/languages"
+    },
+    {
+        "method": "GET",
+        "params": [],
+        "endpoint": "help/privacy"
+    },
+    {
+        "method": "GET",
+        "params": [],
+        "endpoint": "help/tos"
+    },
+    {
+        "method": "GET",
+        "params": [
+            {
+                "example": "37.781157",
+                "desc": "If provided with a long parameter the available trend locations will be sorted by distance, nearest to furthest, to the co-ordinate pair. The valid ranges for longitude is -180.0 to +180.0 (West is negative, East is positive) inclusive.",
+                "type": "string",
+                "required": true,
+                "name": "lat"
+            },
+            {
+                "example": "-122.400612831116",
+                "desc": "If provided with a lat parameter the available trend locations will be sorted by distance, nearest to furthest, to the co-ordinate pair. The valid ranges for longitude is -180.0 to +180.0 (West is negative, East is positive) inclusive.",
+                "type": "string",
+                "required": true,
+                "name": "long"
+            }
+        ],
+        "endpoint": "trends/closest"
+    },
+    {
+        "method": "POST",
+        "params": [
+            {
+                "example": "noradio",
+                "desc": "The ID or screen_name of the user you want to report as a spammer. Helpful for disambiguating when a valid screen name is also a user ID.",
+                "type": "string",
+                "required": false,
+                "name": "screen_name"
+            },
+            {
+                "example": "12345",
+                "desc": "The ID of the user you want to report as a spammer. Helpful for disambiguating when a valid user ID is also a valid screen name.",
+                "type": "int",
+                "required": false,
+                "name": "user_id"
+            }
+        ],
+        "endpoint": "users/report_spam"
+    }
+]

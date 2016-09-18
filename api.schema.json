@@ -1,0 +1,53 @@
+{
+    "title": "Twitter API Schema",
+    "description": "The endpoints available in the Twitter API",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "description": "An API call",
+        "properties": {
+            "endpoint": {
+                "type": "string",
+                "description": "The URI of the API call"
+            }, 
+            "method": {
+                "type": "string",
+                "description": "HTTP method. Either GET or POST."
+            },
+            "params": {
+                "type": "array",
+                "description": "Parameters which can be passed to the API endpoint",
+                "items": {
+                    "type": "object",
+                    "description": "A single parameter which can be passed in a call to the API endpoint",
+                    "properties": {
+                        "name": { 
+                            "type": "string",
+                            "description": "The name of the parameter"
+                        },
+                        "type": {
+                            "type": "string",
+                            "description": "The type (inferred) of the parameter"
+                        },
+                        "example": {
+                            "type": "string",
+                            "description": "An example of a value that can be passed for that parameter in a typical API call"
+                        },
+                        "desc": {
+                            "type": "string",
+                            "description": "A short description of the parameter and its effect on the result of the call."
+                        },
+                        "required": {
+                            "type": "bool",
+                            "description": "Whether the parameter is required or optional."
+                        }
+                    },
+                    "required": ["name", "type", "desc", "required"]
+                },
+                "uniqueItems": true
+            }
+        },
+        "required": ["endpoint", "method"]
+    },
+    "uniqueItems": true
+}
