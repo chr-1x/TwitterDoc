@@ -2,7 +2,7 @@
 
 Ever needed a machine-readable format of the Twitter API docs? I did, so I wrote a python script to crawl the HTML of
 the REST API pages and generate a JSON document describing the API. And just because I care, I also wrote a schema for
-the schema. (The schema for the schema for the schema is available at [json-schema.org](http://json-schema.org/).
+the schema. (The schema for the schema for the schema is available at [json-schema.org](http://json-schema.org/)).
 
 The script is written for Python 3 and uses the following libraries:
 
