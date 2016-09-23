@@ -83,13 +83,14 @@ def parse_api_info(doc):
 
 def infer_type(param):
     idish = ""
+    intish = False
     if (hasattr(param, "example")):
         if (param.example == "true" or param.example == "false"):
             return "bool"
         try:
             val = int(param.example)
             if (val == 12345 or val == 54321): idish = "_id"
-            return "int" # TODO might be bool? Some examples give "1", and we'll need to check other places.
+            intish = True
         except ValueError:
             pass
     if (param.name.find("color") >= 0):
@@ -109,6 +110,8 @@ def infer_type(param):
         if (param.desc.find("search") >= 0): return "search" + idish
         if (param.desc.find("media") >= 0): return "search" + idish
         return "status" + idish
+
+    if (intish): return "int"
 
     return "string"
 
