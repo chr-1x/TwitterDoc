@@ -50,6 +50,12 @@ def get_endpoint_list():
         result.append(tag.contents[0]['href'])
     return [s.replace("%3A", ":") for s in result if (s.find("/reference") > 0) ]
 
+def replace_all(str, l1, l2):
+    result = str
+    for i in range(len(l1)):
+        result = result.replace(l1[i], l2[i])
+    return result
+
 def parse_api_info(doc):
     result = APIEndpoint()
 
@@ -69,7 +75,8 @@ def parse_api_info(doc):
             p = APIParam()
             p.name = next(param.stripped_strings)
             p.required = param.span != None and param.span.span != None and param.span.span.text == "required"
-            p.desc = "".join(param.p.strings)
+            p.desc = "".join(param.p.strings).strip()
+            p.desc = replace_all(p.desc, ['\u2019', '\u201c', '\u201d'], ['\'', '\"', '\"'])
 
             ps = param.find_all("p")
             if (len(ps) > 1):
