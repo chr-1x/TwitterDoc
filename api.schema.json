@@ -10,6 +10,10 @@
                 "type": "string",
                 "description": "The URI of the API call"
             }, 
+            "desc": {
+                "type": "string",
+                "description": "A description of the API call and its purpose, effects, related calls, etc."
+            },
             "method": {
                 "type": "string",
                 "description": "HTTP method. Either GET or POST."
