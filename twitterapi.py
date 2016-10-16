@@ -70,7 +70,7 @@ def parse_api_info(doc):
     result.url = url_parent.find(class_="Field-items-item").text
 
     body_node = doc.find(class_="Node-apiDocsBody")
-    result.desc = " ".join(body_node.stripped_strings).strip()
+    result.desc = " ".join([s.strip(" ") for s in body_node.strings]).strip()
     result.desc = replace_all(result.desc, ['\u2019', '\u201c', '\u201d'], ['\'', '\"', '\"'])
 
     params_parent = doc.find(class_="Node-apiDocsParams")
@@ -121,7 +121,7 @@ def infer_type(param):
         if (param.name.find("user") >= 0): return "user" + idish
         if (param.name.find("place") >= 0): return "place" + idish
         if (param.desc.find("search") >= 0): return "search" + idish
-        if (param.desc.find("media") >= 0): return "search" + idish
+        if (param.desc.find("media") >= 0): return "media" + idish
         return "status" + idish
 
     if (intish): return "int"
