@@ -10,6 +10,7 @@ class APIParam:
         self.required = False
         self.desc = ""
         self.example = ""
+        self.default = ""
         self.type = ""
 
 class APIEndpoint:
@@ -31,6 +32,8 @@ class APIEncoder(json.JSONEncoder):
                               "type" : param.type }
                 if (param.example != ""):
                     paramdict["example"] = param.example
+                if (param.default != ""):
+                    paramdict["default"] = param.default
                 paramlist.append(paramdict)
 
             return { "path" : obj.path,
@@ -46,11 +49,11 @@ def request_and_parse(url):
     return bs(r.text, 'html.parser')
 
 def get_endpoint_list():
-    doc = request_and_parse("https://dev.twitter.com/rest/public")
+    doc = request_and_parse("https://dev.twitter.com/rest/reference")
     result = []
-    for tag in doc.find_all(class_="leaf"):
+    for tag in doc.find(id="reference-documentation").find_all("li", class_="toctree-l1"):
         result.append(tag.contents[0]['href'])
-    return [s.replace("%3A", ":") for s in result if (s.find("/reference") > 0) ]
+    return [s.replace("%3A", ":") for s in result if (s.find("reference") == 0) ]
 
 def replace_all(str, l1, l2):
     result = str
@@ -61,34 +64,38 @@ def replace_all(str, l1, l2):
 def parse_api_info(doc):
     result = APIEndpoint()
 
-    heading = doc.find("h1")
-    title = "".join(heading.strings).strip()
-    result.method = title.split(" ")[0]
-    result.path = title.split(" ")[1]
+    try: 
+        heading = doc.find("h1")
+        title = next(heading.children).string.strip()
+        result.method = title.split(" ")[0]
+        result.path = title.split(" ")[1]
 
-    url_parent = doc.find(class_="Node-apiDocsUrl")
-    result.url = url_parent.find(class_="Field-items-item").text
+        url_parent = doc.find(id="resource-url")
+        result.url = next(url_parent.find("p").stripped_strings).strip()
 
-    body_node = doc.find(class_="Node-apiDocsBody")
-    result.desc = " ".join([s.strip(" ") for s in body_node.strings]).strip()
-    result.desc = replace_all(result.desc, ['\u2019', '\u201c', '\u201d'], ['\'', '\"', '\"'])
+        body_ps = doc.find(class_="document").find(class_="section").find_all("p", recursive=False)
+        result.desc = " ".join(sum([[s.strip(" ") for s in p.strings] for p in body_ps], [])).strip()
+        result.desc = replace_all(result.desc, ['\u2019', '\u201c', '\u201d'], ['\'', '\"', '\"'])
 
-    params_parent = doc.find(class_="Node-apiDocsParams")
-    params = params_parent.find_all(class_="parameter")
+        params_parent = doc.find(id="parameters")
+        params = params_parent.find_all("tr")
+        if (len(params) > 1):
+            params = params[1:]
+    except AttributeError as e:
+        print("Check %s, got error %s" % (result.url, e), file=sys.stderr)
+
 
     for param in params:
         try:
+            cells = param.find_all("td")
             p = APIParam()
-            p.name = next(param.stripped_strings)
-            p.required = param.span != None and param.span.span != None and param.span.span.text == "required"
-            p.desc = "".join(param.p.strings).strip()
+            p.name = "".join(cells[0].stripped_strings)
+            p.required = next(cells[1].stripped_strings) == "required"
+            p.desc = "".join(cells[2].strings).strip()
             p.desc = replace_all(p.desc, ['\u2019', '\u201c', '\u201d'], ['\'', '\"', '\"'])
 
-            ps = param.find_all("p")
-            if (len(ps) > 1):
-                ex_p = ps[len(ps) - 1]
-                if (ex_p.strong and ex_p.code and "".join(ex_p.strong.strings).find("Example") >= 0):
-                    p.example = "".join(ex_p.code.stripped_strings)
+            p.default = "".join(cells[4].stripped_strings)
+            p.example = "".join(cells[4].stripped_strings)
             result.params.append(p)
         except AttributeError as e:
             print("Check %s, got error %s" % (result.url, e), file=sys.stderr)
@@ -112,9 +119,11 @@ def infer_type(param):
         return "cursor"
     if (param.name.find("count") >= 0):
         return "int"
+    if (param.name == "media"):
+        return "binary"
     if (param.name.find("_ids") > 0):
         idish = "_ids"
-    elif (param.name.find("_id") > 0):
+    elif (param.name.find("_id") > 0 or param.name == "id"):
         idish = "_id"
 
     if (len(idish) > 0):
@@ -132,7 +141,7 @@ endpoints = get_endpoint_list()
 api = []
 
 for endpoint in endpoints:
-    doc = request_and_parse("https://dev.twitter.com" + endpoint)
+    doc = request_and_parse("https://dev.twitter.com/rest/" + endpoint)
     parsed = parse_api_info(doc)
     for param in parsed.params:
         param.type = infer_type(param)
